@@ -1,8 +1,5 @@
 #!/bin/bash
 
-
-source $DOTFILES_DIR/bash/path_ps1.sh
-
 # Standard colors:
 #
 # Black       0;30     Dark Gray     1;30
