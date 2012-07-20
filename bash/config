@@ -21,7 +21,6 @@ if [ -n "$LS_COLORS" ];then
     [[ -n "$HAVE_TREE" ]] && alias tree='tree -C'
 fi
 
-export GREP_COLOR='3;32'
 export GREP_OPTIONS='--color=auto'
 
 ##########
