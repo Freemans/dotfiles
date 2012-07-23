@@ -52,10 +52,18 @@ git_prompt_info() {
 	fi
 }
 
-export GIT_PS1_SHOWDIRTYSTATE=true
+#export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWDIRTYSTATE=
+unset GIT_PS1_SHOWDIRTYSTATE
 export GIT_PS1_SHOWSTASHSTATE=true
-export GIT_PS1_SHOWUNTRACKEDFILES=true
-#export GIT_PS1_SHOWUPSTREAM=false
+#export GIT_PS1_SHOWSTASHSTATE=
+#unset GIT_PS1_SHOWSTASHSTATE
+#export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWUNTRACKEDFILES=
+unset GIT_PS1_SHOWUNTRACKEDFILES
+export GIT_PS1_SHOWUPSTREAM="verbose"
+#export GIT_PS1_SHOWUPSTREAM=
+#unset GIT_PS1_SHOWUPSTREAM
 
 fi
 
@@ -98,13 +106,7 @@ prompt() {
         local cl_code=${br_red}
         local cl_prompt=${br_red}
     fi
-    #local PS1_LINE1="$(chroot_prompt_info)<~~~ $(user_prompt_info)@$(server_prompt_info) ( \t )$(exitcode_prompt_info ${exit_code}) ${br_cyan}${PWD}${normal} ~~~>"
-    #local PS1_LINE2="\[\e[1;36m\]\w\[\e[0m\]$(git_prompt_info)$(is_vim_shell) ${cl_prompt}\$${normal} "
-    #PS1="$PS1_LINE1\n$PS1_LINE2"
-    #PS1="$(chroot_prompt_info)<~~~ $(user_prompt_info)@$(server_prompt_info) ( \t )$(exitcode_prompt_info ${exit_code})$(path_prompt_info)$(git_prompt_info)$(is_vim_shell) ${cl_prompt}\$${normal} "
-    PS1="$(chroot_prompt_info)<~~~ $(user_prompt_info)@$(server_prompt_info) ( \t )$(exitcode_prompt_info ${exit_code})$(path_prompt_info)$(git_prompt_info)$(is_vim_shell) ${cl_prompt}\$${normal} "
-
-    #export PS1='\001\e[0;33m\002\u\001\e[0;30m\002@\001\e[1;36m\002\h\001\e[0m\002:\001\e[0;33m\002$(__path_ps1)\001\e[0m\002\001\e[0;35m\002\$ \001\e[0m\002'
+    PS1="$(chroot_prompt_info)$(user_prompt_info)@$(server_prompt_info) (\t)$(exitcode_prompt_info ${exit_code})$(path_prompt_info)$(git_prompt_info)$(is_vim_shell) ${cl_prompt}\$${normal} "
 
 }
 
