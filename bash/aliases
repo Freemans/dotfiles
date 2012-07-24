@@ -14,3 +14,10 @@ alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' 
 
 speed_ssh() { if [ -z "$1" ];then echo 'Vous devez specifier le nom du serveur distant'; else yes | pv | ssh "$1" "cat >/dev/null"; fi }
 typeset -f _ssh >/dev/null && shopt -u hostcomplete && complete -F _ssh speed_ssh
+
+# fonction a la con
+alias busy='my_file=$(find /usr/include -type f | sort -R | head -n 1); my_len=$(wc -l $my_file | awk "{print $1}"); let "r = $RANDOM % $my_len" 2>/dev/null; vim +$r $my_file'
+
+# basics
+alias dstat='dstat -cdngymlp'
+alias scp='scp -o StrictHostKeyChecking=no -c arcfour -o compression=no'
