@@ -86,6 +86,11 @@ chroot_prompt_info() {
     echo "${debian_chroot:+($debian_chroot) }"
 }
 
+# WINDOW TITLE
+window_title_info() {
+    echo "\[\e]0;${debian_chroot:+($debian_chroot)}${HOSTNAME}\a\]"
+}
+
 # EXITCODE
 exitcode_prompt_info() {
     [[ "$1" -ne 0 ]] && echo " [${br_red}${1}${normal}]"
@@ -106,7 +111,7 @@ prompt() {
         local cl_code=${br_red}
         local cl_prompt=${br_red}
     fi
-    PS1="$(chroot_prompt_info)$(user_prompt_info)@$(server_prompt_info) (\t)$(exitcode_prompt_info ${exit_code})$(path_prompt_info)$(git_prompt_info)$(is_vim_shell) ${cl_prompt}\$${normal} "
+    PS1="$(window_title_info)$(chroot_prompt_info)$(user_prompt_info)@$(server_prompt_info) (\t)$(exitcode_prompt_info ${exit_code})$(path_prompt_info)$(git_prompt_info)$(is_vim_shell) ${cl_prompt}\$${normal} "
 
 }
 
