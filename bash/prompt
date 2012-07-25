@@ -88,7 +88,13 @@ chroot_prompt_info() {
 
 # WINDOW TITLE
 window_title_info() {
-    echo "\[\e]0;${debian_chroot:+($debian_chroot)}${HOSTNAME}\a\]"
+    case "$TERM" in
+        xterm*|rxvt*)
+            echo "\[\e]0;${debian_chroot:+($debian_chroot)}${HOSTNAME}\a\]"
+            ;;
+        *)
+            ;;
+    esac
 }
 
 # EXITCODE
