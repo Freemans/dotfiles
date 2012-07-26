@@ -85,11 +85,13 @@ if [[ -d "$HOME/.todo" && -f "$HOME/.todo.cfg" ]];then
      complete -F _todo t
 fi
 
-##############
+######
 # xssh
-##############
-source $DOTFILES_DIR/xssh/xssh.sh
-alias ssh >/dev/null 2>&1 || alias ssh="xssh"
+######
+if [[ -f "$HOME/.xssh_rc" ]];then
+    source "$DOTFILES_DIR/xssh/xssh.sh"
+    alias ssh >/dev/null 2>&1 || alias ssh=xssh
+fi
 
 #########
 # PROMPT
@@ -107,3 +109,10 @@ mkpass() {
    cat /dev/urandom | tr -cd '[:alnum:]' | head -c ${1:-10} ; echo
 }
 
+# Local Variables:      #
+# mode: ksh             #
+# tab-width: 4          #
+# indent-tabs-mode: nil #
+# End:                  #
+#
+# vi: set expandtab ts=4 sw=4 sts=4: #
