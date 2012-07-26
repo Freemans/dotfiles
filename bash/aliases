@@ -21,3 +21,25 @@ alias busy='my_file=$(find /usr/include -type f | sort -R | head -n 1); my_len=$
 # basics
 alias dstat='dstat -cdngymlp'
 alias scp='scp -o StrictHostKeyChecking=no -c arcfour -o compression=no'
+
+#####
+# GIT
+# ###
+
+# Idiot-Proof Git Aliases (see http://notes.envato.com/developers/rebasing-merge-commits-in-git/)
+function git_current_branch() {
+  git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\///'
+}
+
+alias gpthis='git push origin HEAD:$(git_current_branch)'
+alias grb='git rebase -p'
+alias gup='git fetch origin && grb origin/$(git_current_branch)'
+alias gm='git merge --no-ff'
+
+# Local Variables:      #
+# mode: ksh             #
+# tab-width: 4          #
+# indent-tabs-mode: nil #
+# End:                  #
+#
+# vi: set expandtab ts=4 sw=4 sts=4: #
