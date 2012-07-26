@@ -120,7 +120,7 @@ prompt() {
         local cl_code=${br_red}
         local cl_prompt=${br_red}
     fi
-    PS1="$(window_title_info)$(chroot_prompt_info)$(user_prompt_info)@$(server_prompt_info) (\t)$(exitcode_prompt_info ${exit_code})$(path_prompt_info)$(git_prompt_info)$(is_vim_shell) ${cl_prompt}\$${normal} "
+    PS1="$(window_title_info)$(chroot_prompt_info)$(user_prompt_info)@$(server_prompt_info) (\t)$(exitcode_prompt_info ${exit_code})$(path_prompt_info)$(git_prompt_info)$(is_vim_shell) ${cl_prompt}\\\$${normal} "
 
 }
 
