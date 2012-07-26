@@ -89,8 +89,8 @@ chroot_prompt_info() {
 # WINDOW TITLE
 window_title_info() {
     case "$TERM" in
-        xterm*|rxvt*)
-            echo "\[\e]0;${debian_chroot:+($debian_chroot)}${HOSTNAME}\a\]"
+        linux*|xterm*|rxvt*)
+            echo "\[\e]0;${debian_chroot:+($debian_chroot)}\H\a\]"
             ;;
         *)
             ;;
