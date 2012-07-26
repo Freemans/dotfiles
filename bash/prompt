@@ -77,8 +77,11 @@ user_prompt_info() {
 }
 
 # SERVER
+
+hostname_prompt="\H" # Can be overwrite
+
 server_prompt_info() {
-    echo "${br_blue}\H${normal}"
+    echo "${br_blue}${hostname_prompt}${normal}"
 }
 
 # CHROOT
@@ -90,7 +93,7 @@ chroot_prompt_info() {
 window_title_info() {
     case "$TERM" in
         linux*|xterm*|rxvt*)
-            echo "\[\e]0;${debian_chroot:+($debian_chroot)}\H\a\]"
+            echo "\[\e]0;${debian_chroot:+($debian_chroot)}${hostname_prompt}\a\]"
             ;;
         *)
             ;;
