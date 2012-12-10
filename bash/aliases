@@ -22,6 +22,9 @@ alias busy='my_file=$(find /usr/include -type f | sort -R | head -n 1); my_len=$
 alias dstat='dstat -cdngymlp'
 alias scp='scp -o StrictHostKeyChecking=no -c arcfour -o compression=no'
 
+# cfengine de l'hebex
+alias CFE_update='ssh svn01.prod.cfengine.s1.p.fti.net --  CFE_update'
+
 #####
 # GIT
 # ###
