@@ -15,12 +15,7 @@ pathmunge () {
 
 ## PATH
 
-# Adapting PATH environment variable for use with MacPorts.
-[[ -d /opt/local/bin ]] && pathmunge /opt/local/sbin && pathmunge /opt/local/bin
-
-
-# Add MAMP bin directory to PATH environment
-[[ -d /Applications/MAMP/Library/bin ]] && pathmunge /Applications/MAMP/Library/bin after
+pathmunge "./"
 
 # Add dotfiles bin directory to PATH environment
 pathmunge "$DOTFILES_DIR/bin"
