@@ -136,7 +136,7 @@ set tabstop=4
 " number of space characters inserted for indentation
 set shiftwidth=4
 " insert space characters whenever the tab key is pressed
-set expandtab
+" set expandtab
 " makes the backspace key treat the spaces like a tab
 set softtabstop=4
 
