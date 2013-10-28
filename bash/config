@@ -123,6 +123,15 @@ mkpass() {
    cat /dev/urandom | tr -cd '[:alnum:]' | head -c ${1:-10} ; echo
 }
 
+######################
+# get former ssh agent
+######################
+SSH_AUTH_SOCK=$(find /tmp/ssh-* -type s -user $(id -nu) 2>/dev/null | head -n 1)
+[[ -z $SSH_AUTH_SOCK ]] && eval $(ssh-agent)
+export SSH_AUTH_SOCK
+
+
+
 # Local Variables:      #
 # mode: ksh             #
 # tab-width: 4          #
