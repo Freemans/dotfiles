@@ -78,7 +78,8 @@ user_prompt_info() {
 
 # SERVER
 
-hostname_prompt="\H" # Can be overwrite
+#  hostname_prompt="\H" # Can be overwrite
+hostname_prompt="vm"
 
 server_prompt_info() {
     echo "${br_blue}${hostname_prompt}${normal}"
